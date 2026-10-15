@@ -13,7 +13,6 @@ import { DailyBarChart } from '@components/charts/DailyBarChart';
 import { HabitHeatmap } from '@components/charts/HabitHeatmap';
 import { getPeriodDates } from '@services/statsService';
 import type { PeriodKey } from '@services/statsService';
-import type { StreakResult } from '@utils/streakCalculator';
 import dayjs from 'dayjs';
 
 type Nav = StackNavigationProp<AnalyticsStackParamList, 'AnalyticsOverview'>;
@@ -38,7 +37,7 @@ export function AnalyticsScreen() {
   const { categories, load: loadCats } = useCategoriesStore();
   const { habitConfigs, load: loadHabits, getStreakResult } = useHabitStore();
   const [habitRows, setHabitRows] = useState<
-    Array<{ habit: (typeof habitConfigs)[0]; doneDates: string[]; currentStreak: number }>
+    { habit: (typeof habitConfigs)[0]; doneDates: string[]; currentStreak: number }[]
   >([]);
 
   async function loadHabitData() {

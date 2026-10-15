@@ -1,12 +1,11 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { Text, RadioButton, List, Divider, useTheme } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ScrollView } from 'react-native';
 import { useAppTheme } from '@theme/ThemeContext';
 import type { ThemeMode } from '@t/index';
 
-const MODES: Array<{ label: string; value: ThemeMode }> = [
+const MODES: { label: string; value: ThemeMode }[] = [
   { label: 'Sistema (automático)', value: 'system' },
   { label: 'Claro', value: 'light' },
   { label: 'Oscuro', value: 'dark' },

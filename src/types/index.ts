@@ -75,5 +75,5 @@ export interface PeriodReport {
   byCategory: Record<string, number>;
   taskCompletionRate: number;
   habitCompletionRate: number;
-  topCategories: Array<{ category: Category; count: number }>;
+  topCategories: { category: Category; count: number }[];
 }

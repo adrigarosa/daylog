@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { View, StyleSheet, FlatList, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { Text, FAB, useTheme, ActivityIndicator, Divider } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import type { JournalStackParamList } from '@navigation/types';
-import { useJournalStore, type EntryWithCats } from '@stores/journalStore';
+import { useJournalStore } from '@stores/journalStore';
 import { useCategoriesStore } from '@stores/categoriesStore';
 import { useHabitStore } from '@stores/habitStore';
 import { DateNavigator } from '@components/DateNavigator';
@@ -16,7 +16,7 @@ import type { TaskStatus, EntryType } from '@t/index';
 
 type Nav = StackNavigationProp<JournalStackParamList, 'Today'>;
 
-const GROUPS: Array<{ type: EntryType; label: string; emptyText: string }> = [
+const GROUPS: { type: EntryType; label: string; emptyText: string }[] = [
   { type: 'task',  label: 'Tareas',   emptyText: 'Sin tareas para hoy' },
   { type: 'fact',  label: 'Hechos',   emptyText: '' },
   { type: 'note',  label: 'Notas',    emptyText: '' },

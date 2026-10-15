@@ -1,4 +1,4 @@
-import { eq, asc, and, count } from 'drizzle-orm';
+import { eq, asc, count } from 'drizzle-orm';
 import { randomUUID } from 'expo-crypto';
 import type { DB } from '@db/database';
 import { categories, keywords, entryCategories, entries } from '@db/schema';

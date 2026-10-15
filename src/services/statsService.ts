@@ -14,8 +14,8 @@ export interface PeriodStats {
   byType: Partial<Record<EntryType, number>>;
   taskCompletionRate: number | null; // null = no tasks
   habitCompletionRate: number | null;
-  byCategory: Array<{ categoryId: string; count: number }>;
-  dailyCounts: Array<{ date: string; count: number }>;
+  byCategory: { categoryId: string; count: number }[];
+  dailyCounts: { date: string; count: number }[];
 }
 
 export function getPeriodDates(period: PeriodKey): { startDate: string; endDate: string } {

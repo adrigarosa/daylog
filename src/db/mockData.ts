@@ -117,13 +117,6 @@ export const MOCK_ENTRIES: EntryWithCats[] = [
 
 // ─── Analytics mock data ──────────────────────────────────────────────────────
 
-function makeDailyCounts(days: number, base: number, variance: number) {
-  return Array.from({ length: days }, (_, i) => ({
-    date: addDays(today, -(days - 1 - i)),
-    count: Math.max(0, base + Math.round((Math.random() * 2 - 1) * variance)),
-  }));
-}
-
 // Deterministic daily counts (reproducible across renders)
 const DAILY_WEEK = [3, 5, 2, 4, 6, 3, 8].map((count, i) => ({
   date: addDays(today, -(6 - i)),

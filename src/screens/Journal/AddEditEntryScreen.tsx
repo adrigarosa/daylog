@@ -33,7 +33,7 @@ const TYPE_OPTIONS = [
   { value: 'habit', label: '🔄 Hábito' },
 ];
 
-const STATUS_OPTIONS: Array<{ value: TaskStatus; label: string }> = [
+const STATUS_OPTIONS: { value: TaskStatus; label: string }[] = [
   { value: 'todo',        label: 'Pendiente'   },
   { value: 'in_progress', label: 'En progreso' },
   { value: 'completed',   label: 'Completada'  },

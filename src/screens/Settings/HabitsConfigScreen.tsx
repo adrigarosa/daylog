@@ -8,7 +8,7 @@ import type { SettingsStackParamList } from '@navigation/types';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useHabitStore } from '@stores/habitStore';
 import type { HabitConfig } from '@t/index';
-import { calculateStreak, formatStreakLabel } from '@utils/streakCalculator';
+import { formatStreakLabel } from '@utils/streakCalculator';
 
 type Nav = StackNavigationProp<SettingsStackParamList, 'HabitsConfig'>;
 
@@ -20,7 +20,7 @@ interface HabitWithStreak extends HabitConfig {
 export function HabitsConfigScreen() {
   const theme = useTheme();
   const nav = useNavigation<Nav>();
-  const { habitConfigs, load, reload, toggleActive, deleteHabit, getStreakResult } = useHabitStore();
+  const { habitConfigs, load, toggleActive, deleteHabit, getStreakResult } = useHabitStore();
   const [enriched, setEnriched] = useState<HabitWithStreak[]>([]);
   const [loadingStreaks, setLoadingStreaks] = useState(false);
 

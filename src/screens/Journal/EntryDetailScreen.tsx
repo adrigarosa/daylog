@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { View, StyleSheet, ScrollView, Alert } from 'react-native';
-import { Text, Button, Divider, useTheme, IconButton } from 'react-native-paper';
+import { Text, Button, Divider, useTheme } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import type { StackNavigationProp } from '@react-navigation/stack';
+import { useRoute } from '@react-navigation/native';
 import type { RouteProp } from '@react-navigation/native';
 import type { JournalStackParamList } from '@navigation/types';
 import { useJournalStore } from '@stores/journalStore';
-import { useCategoriesStore } from '@stores/categoriesStore';
 import { StatusPill } from '@components/StatusPill';
 import { CategoryBadge } from '@components/CategoryBadge';
 import { typeColors } from '@theme/colors';

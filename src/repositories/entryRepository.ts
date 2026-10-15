@@ -1,4 +1,4 @@
-import { eq, and, desc, between, inArray, not } from 'drizzle-orm';
+import { eq, and, desc, between, inArray } from 'drizzle-orm';
 import { randomUUID } from 'expo-crypto';
 import dayjs from 'dayjs';
 import type { DB } from '@db/database';

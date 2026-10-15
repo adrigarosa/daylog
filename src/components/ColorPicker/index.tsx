@@ -17,7 +17,7 @@ interface Props {
 }
 
 export function ColorPicker({ value, onChange }: Props) {
-  const theme = useTheme();
+
 
   return (
     <View style={styles.container}>

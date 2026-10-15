@@ -7,7 +7,7 @@ import type { StackNavigationProp } from '@react-navigation/stack';
 import type { CalendarStackParamList } from '@navigation/types';
 import { db } from '@db/database';
 import { entries } from '@db/schema';
-import { and, between, eq, count, sql } from 'drizzle-orm';
+import { and, between, eq, count } from 'drizzle-orm';
 import {
   formatMonthLabel, daysInMonth, firstWeekdayOfMonth,
   startOfMonth, endOfMonth, TODAY, isToday,
@@ -69,7 +69,7 @@ export function CalendarScreen() {
   const isCurrentMonth = year === now.year() && month === now.month() + 1;
   const canGoNext = !isCurrentMonth;
 
-  const cells: Array<{ day: number | null; dateStr: string | null }> = [
+  const cells: { day: number | null; dateStr: string | null }[] = [
     ...Array.from({ length: firstWd }, () => ({ day: null, dateStr: null })),
     ...Array.from({ length: totalDays }, (_, i) => {
       const d = i + 1;

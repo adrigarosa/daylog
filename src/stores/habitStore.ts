@@ -1,13 +1,10 @@
 import { Platform } from 'react-native';
 import { create } from 'zustand';
-import dayjs from 'dayjs';
 import { db } from '@db/database';
 import { createHabitConfigRepository } from '@repositories/habitConfigRepository';
 import { createEntryRepository } from '@repositories/entryRepository';
 import type { HabitConfig } from '@t/index';
-import type { EntryRow } from '@db/schema';
 import { calculateStreak, type StreakResult } from '@utils/streakCalculator';
-import { TODAY } from '@utils/dateUtils';
 import {
   MOCK_HABIT_CONFIGS,
   MOCK_ENTRIES,
