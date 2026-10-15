@@ -136,7 +136,7 @@ export function HabitDetailScreen() {
             PALABRAS CLAVE (auto-detección)
           </Text>
           <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant, marginBottom: 8 }}>
-            Si una entrada tipo "Hábito" contiene estas palabras, se vinculará a este hábito automáticamente.
+            Si una entrada tipo &quot;Hábito&quot; contiene estas palabras, se vinculará a este hábito automáticamente.
           </Text>
           <View style={styles.kwInput}>
             <TextInput

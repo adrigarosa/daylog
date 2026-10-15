@@ -25,14 +25,19 @@ export function KeywordsScreen() {
   const [loading, setLoading] = useState(true);
   const [adding, setAdding] = useState(false);
 
-  useEffect(() => { loadKeywords(); }, []);
-
   async function loadKeywords() {
     setLoading(true);
     const rows = await catRepo.findKeywordsByCategory(categoryId);
     setKwList(rows);
     setLoading(false);
   }
+
+  useEffect(() => { 
+    const load = async () => {
+      await loadKeywords();
+    };
+    load();
+  }, []);
 
   const handleAdd = async () => {
     const kw = newKw.trim().toLowerCase();

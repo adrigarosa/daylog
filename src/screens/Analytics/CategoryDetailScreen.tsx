@@ -26,10 +26,6 @@ export function CategoryDetailScreen() {
   const [entries, setEntries] = useState<EntryWithCats[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    loadEntries();
-  }, [categoryId, startDate, endDate]);
-
   async function loadEntries() {
     setLoading(true);
     try {
@@ -96,6 +92,13 @@ export function CategoryDetailScreen() {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    const load = async () => {
+      await loadEntries();
+    };
+    load();
+  }, [categoryId, startDate, endDate]);
 
   const periodLabel = `${dayjs(startDate).locale('es').format('D MMM')} – ${dayjs(endDate).locale('es').format('D MMM YYYY')}`;
 

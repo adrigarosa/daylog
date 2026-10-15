@@ -24,14 +24,6 @@ export function HabitsConfigScreen() {
   const [enriched, setEnriched] = useState<HabitWithStreak[]>([]);
   const [loadingStreaks, setLoadingStreaks] = useState(false);
 
-  useEffect(() => {
-    load().then(() => loadStreaks());
-  }, []);
-
-  useEffect(() => {
-    loadStreaks();
-  }, [habitConfigs]);
-
   async function loadStreaks() {
     if (habitConfigs.length === 0) { setEnriched([]); return; }
     setLoadingStreaks(true);
@@ -44,6 +36,21 @@ export function HabitsConfigScreen() {
     setEnriched(results);
     setLoadingStreaks(false);
   }
+
+  useEffect(() => {
+    const init = async () => {
+      await load();
+      await loadStreaks();
+    };
+    init();
+  }, []);
+
+  useEffect(() => {
+    const init = async () => {
+      await loadStreaks();
+    };
+    init();
+  }, [habitConfigs]);
 
   const handleDelete = useCallback((habit: HabitConfig) => {
     Alert.alert(

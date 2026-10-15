@@ -41,16 +41,6 @@ export function AnalyticsScreen() {
     Array<{ habit: (typeof habitConfigs)[0]; doneDates: string[]; currentStreak: number }>
   >([]);
 
-  useEffect(() => {
-    loadCats();
-    loadHabits();
-    loadStats();
-  }, []);
-
-  useEffect(() => {
-    loadHabitData();
-  }, [habitConfigs, period]);
-
   async function loadHabitData() {
     const activeHabits = habitConfigs.filter((h) => h.isActive);
     const rows = await Promise.all(
@@ -79,6 +69,16 @@ export function AnalyticsScreen() {
     );
     setHabitRows(rows);
   }
+
+  useEffect(() => {
+    const init = async () => {
+      loadCats();
+      loadHabits();
+      loadStats();
+      await loadHabitData();
+    };
+    init();
+  }, [habitConfigs, period]);
 
   const { startDate, endDate } = getPeriodDates(period);
   const periodLabel = period === 'week'

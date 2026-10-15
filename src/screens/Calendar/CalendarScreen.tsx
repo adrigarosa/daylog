@@ -28,10 +28,6 @@ export function CalendarScreen() {
   const [dotMap, setDotMap] = useState<Map<string, number>>(new Map());
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    loadDots();
-  }, [year, month]);
-
   async function loadDots() {
     setLoading(true);
     try {
@@ -48,6 +44,13 @@ export function CalendarScreen() {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    const load = async () => {
+      await loadDots();
+    };
+    load();
+  }, [year, month]);
 
   const prevMonth = () => {
     if (month === 1) { setYear(y => y - 1); setMonth(12); }
