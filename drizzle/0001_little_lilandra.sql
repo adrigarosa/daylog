@@ -1,0 +1,1 @@
+ALTER TABLE `entries` ADD `habit_config_id` text;
